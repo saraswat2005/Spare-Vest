@@ -1,69 +1,87 @@
-# Spare-Vest
-Most Indians find it difficult to invest in global stocks due to high entry barriers, complex processes, and lack of financial awareness. As a result, millions miss out on wealth-building opportunities available in international markets
-make a readme proffesional for this
+# appJar  
 
-# Globelet: Turn Spare Change into Global Wealth
+Simple tKinter GUIs in Python  
 
-## Overview
+---
 
-Globelet is an innovative micro-investing app that empowers Indian users to invest their spare change from daily purchases into fractional shares of US and global stocks/ETFs. By automating the investment process through round-ups, Globelet makes global wealth creation accessible, effortless, and habit-forming for everyone.
+[![PyPI Version][pypi-v-image]][pypi-v-link]
+[![Build Status][travis-image]][travis-link]
+[![Test Coverage][coveralls-image]][coveralls-link]
+[![Code Health][landscape-image]][landscape-link]
+[![Code Climate][climate-image]][climate-link]
+[![irc][irc-image]][irc-link]
 
-## Table of Contents
+[pypi-v-image]: https://img.shields.io/pypi/v/appJar.png
+[pypi-v-link]: https://pypi.python.org/pypi/appJar
+[travis-image]: https://travis-ci.org/jarvisteach/appJar.svg?branch=appJar
+[travis-link]: https://travis-ci.org/jarvisteach/appJar
+[climate-image]: https://codeclimate.com/github/jarvisteach/appJar/badges/gpa.svg
+[climate-link]: https://codeclimate.com/github/jarvisteach/appJar
+[landscape-image]: https://landscape.io/github/jarvisteach/appJar/appJar/landscape.svg?style=flat
+[landscape-link]: https://landscape.io/github/jarvisteach/appJar/appJar
+[coveralls-image]: https://coveralls.io/repos/github/jarvisteach/appJar/badge.svg
+[coveralls-link]: https://coveralls.io/github/jarvisteach/appJar
+[irc-image]:https://img.shields.io/badge/irc-%23appJar-lightgrey.svg
+[irc-link]:http://webchat.freenode.net/?channels=appJar&nick=appJarGuest
 
-- [Features](#features)
-- [How It Works](#how-it-works)
-- [Market Opportunity](#market-opportunity)
-- [User Benefits](#user-benefits)
-- [Getting Started](#getting-started)
-- [Security & Compliance](#security--compliance)
-- [Team](#team)
-- [Vision](#vision)
-- [Contact](#contact)
+Download Here: https://github.com/jarvisteach/appJar/raw/appJar/releases/appJar.zip
 
-## Features
+Docs here: http://appJar.info
 
-- Automated Round-Ups: Invest spare change from every transaction.
-- Fractional Investing: Own small portions of leading US/global stocks and ETFs.
-- Goal-Based Portfolios: Set financial goals and track your progress.
-- Financial Education: In-app tips and learning modules to build investing confidence.
-- Secure & Compliant: Bank-level security and regulatory compliance.
-- User-Friendly Interface: Simple, intuitive design for all experience levels.
+This provides a library for implementing easy GUIs...
 
-## How It Works
+### Installation:
+ - Download the ZIP file (click the big green button) & unzip it
+ - Add it to your path:
+   - make a folder in your home directory, called PYLIB, and put appJar inside it
+   - On mac/linux add this to your .bashrc: export PYTHONPATH=~/PYLIB:$PYTHONPATH
+   - On Windows, add a new environment variable
+ - Give it a twirl:
+   - Check the docs folder, for a couple of PDFs with help.
+   - Check the Lessons folder, for some example code.
 
-1. Link Your Account: Connect your bank or card to Globelet securely.
-2. Spend Normally: Make everyday purchases as usual.
-3. Auto-Round-Up: Globelet rounds up each transaction and collects the spare change.
-4. Invest Globally: Once a threshold is reached, your spare change is invested in fractional shares of US/global stocks or ETFs.
-5. Track & Grow: Monitor your portfolio, set goals, and receive personalized insights.
+### Example:
+```
+from appJar import gui  
+app = gui("Example")  
+app.addLabel("label1", "Hello World")  
+app.go()  
+```
 
-## Market Opportunity
+or (using context managers):  
 
-- Over 100 million potential retail investors in India.
-- Growing interest in global equities and micro-investing.
-- Lack of accessible, automated solutions for global investing in the Indian market.
+```
+from appJar import gui  
+with gui("Example") as app:
+    app.addLabel("label1", "Hello World")  
+```
 
-## User Benefits
+or (using simple naming):  
 
-- Low Entry Barrier: Start investing with as little as ₹10.
-- Diversification: Access to international markets and top global companies.
-- Effortless Wealth Building: Automated, consistent investing habits.
-- Financial Inclusion: Democratizes access to global wealth creation.
+```
+from appJar import gui  
+with gui("Example") as app:
+    app.label("Hello World")  
+```
 
-## Getting Started
+### Reasoning:
+ - Designed to be as easy as possible, yet still provide a lot of tkinter functionality
+ - Provides 3 functions for most widgets:
+   - add(name, value) this adds a new widget (usually with a name and a value)
+   - set(name, value) this updates the value of the named widget
+   - get(name) this gets the value of the named widget
+ - Uses grid layout
+ - When adding widgets, up to 4 numerical "positions" can be supplied:
+   - column - the coloumn to appear in, starting at 0
+   - row - row to appear in, stating at 0
+   - columnspan - how many columns to span across
+   - rowspan - how many rows to span down
+ - Provides loads of extra bits and pieces outside of core tkinter
+   - Some of this was from the excellent resources @ http://effbot.org
+   - Some of this was from slashdot examples of how to solve common problems
+   - Some of this has been incorporated from other people's modules:
+     - ToolTip support form Michael Lange  
+     - png support using James Wright's tkinter-png and Johann C. Rocholl's png.py libraries  
+     - jpeg support using NanoJPEG from Martin J. Fiedler  
 
-1. Download Globelet from the App Store or Google Play.
-2. Sign Up and complete KYC for secure onboarding.
-3. Link Your Bank/Card using encrypted, secure APIs.
-4. Set Your Preferences: Choose round-up settings, investment goals, and preferred stocks/ETFs.
-5. Start Investing: Let Globelet handle the rest while you focus on your daily life.
-
-## Security & Compliance
-
-- End-to-end encryption for all user data and transactions.
-- Strict adherence to RBI, SEBI, and international investment regulations.
-- Regular security audits and transparent privacy policies.
-
-## Vision
-
-To make global investing as simple as spending your spare change, empowering every Indian to own a piece of the world and build a secure financial future.
+ - I've tried to get as much functionality into this library as possible, without requiring any other modules
